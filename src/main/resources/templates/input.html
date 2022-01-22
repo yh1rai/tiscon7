@@ -25,68 +25,84 @@
     </ul>
     <div class="col-sm-12">
       <fieldset>
-        <div class="sub-title">お客様情報</div>
+        <div class="sub-title"><font size="5">お客様情報</font></div>
         <div class="form-group">
-          <label for="customerName">氏名</label>
+          <label for="customerName"><font size="4" color="black">氏名</font></label>
           <input type="text" id="customerName" name="customerName" th:field="*{customerName}" class="form-control" value="山田太郎"/>
+          <p><font size="3" color="gray">&nbsp;&nbsp;&nbsp;例：引越太郎<br></font></p>
         </div>
         <div class="form-group">
-          <label for="tel">連絡先TEL</label>
+          <label for="tel"><font size="4" color="black">連絡先TEL</font></label>
           <input type="tel" id="tel" name="tel" th:field="*{tel}" class="form-control" value="03-1234-5678"/>
+          <p><font size="3" color="gray">&nbsp;&nbsp;&nbsp;ハイフンは入力しないでください&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;例：0901234567<br></font></p>
         </div>
         <div class="form-group">
-          <label for="email">連絡先メールアドレス</label>
+          <label for="email"><font size="4" color="black">連絡先メールアドレス</font></label>
           <input type="text" id="email" name="email" th:field="*{email}" class="form-control" value="test@test.com"/>
+          <p><font size="3" color="gray">&nbsp;&nbsp;&nbsp;例：tiscon@moving.com<br></font></p>
         </div>
-        <div class="sub-title">集荷元・お届け先</div>
+        <div class="sub-title"><font size="5" color="black">集荷元・お届け先</font></div>
         <div class="form-group">
-          <label for="oldPrefectureId">集荷元住所（都道府県）</label>
+          <label for="oldPrefectureId"><font size="4" color="black">集荷元住所（都道府県）</font></label>
           <select id="oldPrefectureId" name="oldPrefectureId" class="form-control">
             <option th:each="prefecture : ${prefectures}" th:value="${prefecture.prefectureId}" th:field="*{oldPrefectureId}">[[${prefecture.prefectureName}]]</option>
           </select>
+          <p><font size="3" color="gray">&nbsp;&nbsp;&nbsp;タブから選択してください<br></font></p>
         </div>
         <div class="form-group">
-          <label for="oldAddress">集荷元住所（市区町村以下）</label>
+          <label for="oldAddress"><font size="4" color="black">集荷元住所（市区町村以下）</font></label>
           <input type="text" id="oldAddress" name="oldAddress" th:field="*{oldAddress}"
                  class="form-control" value="新宿区西新宿1-1-1"/>
+          <p><font size="3" color="gray">&nbsp;&nbsp;&nbsp;例：名古屋市北区1-1-1<br></font></p>
         </div>
         <div class="form-group">
-          <label for="newPrefectureId">お届け先住所（都道府県）</label>
+          <label for="newPrefectureId"><font size="4" color="black">お届け先住所（都道府県）</font></label>
           <select id="newPrefectureId" name="newPrefectureId" class="form-control">
             <option th:each="prefecture : ${prefectures}" th:value="${prefecture.prefectureId}" th:field="*{newPrefectureId}">[[${prefecture.prefectureName}]]</option>
           </select>
+          <p><font size="3" color="gray">&nbsp;&nbsp;&nbsp;タブから選択してください<br></font></p>
         </div>
         <div class="form-group">
-          <label for="newAddress">お届け先住所（市区町村以下）</label>
+          <label for="newAddress"><font size="4" color="black">お届け先住所（市区町村以下）</font></label>
           <input type="text" id="newAddress" name="newAddress" th:field="*{newAddress}" class="form-control"
                  value="札幌市南区1"/>
+          <p><font size="3" color="gray">&nbsp;&nbsp;&nbsp;例：豊田市1-1-1<br></font></p>
         </div>
       </fieldset>
       <fieldset>
-      <div class="sub-title">お荷物情報</div>
+      <div class="sub-title"><font size="5" color="black">お荷物情報</font></div>
         <div class="form-group">
-          <label for="box">段ボールの個数</label>
+          <label for="box"><font size="4" color="black">段ボールの個数</font></label>
           <input type="text" id="box" name="box" th:field="*{box}" class="form-control" value="10"/>
+          <p><font size="3" color="gray">&nbsp;&nbsp;&nbsp;半角数字、0個でも入力してください&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;例：5<br></font></p>
         </div>
         <div class="form-group">
-          <label for="bed">ベッドの個数</label>
+          <label for="bed"><font size="4" color="black">ベッドの個数</font></label>
+
           <input type="text" id="bed" name="bed" th:field="*{bed}" class="form-control" value="3"/>
+          <p><font size="3" color="gray">&nbsp;&nbsp;&nbsp;半角数字、0個でも入力してください&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;例：3<br></font></p>
+
         </div>
         <div class="form-group">
-          <label for="bicycle">自転車の個数</label>
+          <label for="bicycle"><font size="4" color="black">自転車の個数</font></label>
           <input type="text" id="bicycle" name="bicycle" th:field="*{bicycle}" class="form-control" value="1"/>
+          <p><font size="3" color="gray">&nbsp;&nbsp;&nbsp;半角数字、0個でも入力してください&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;例：1<br></font></p>
+
         </div>
         <div class="form-group">
-          <label for="washingMachine">洗濯機の個数</label>
+          <label for="washingMachine"><font size="4" color="black">洗濯機の個数</font></label>
           <input type="text" id="washingMachine" name="washingMachine" th:field="*{washingMachine}" class="form-control"
                  value="1"/>
+          <p><font size="3" color="gray">&nbsp;&nbsp;&nbsp;半角数字、0個でも入力してください&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;例：1<br></font></p>
+
         </div>
         <div class="form-group">
-          <label for="washingMachineInstallation">洗濯機の設置工事申し込み</label>
+          <label for="washingMachineInstallation"><font size="4" color="black">洗濯機の設置工事申し込み</font></label>
           <select id="washingMachineInstallation" name="washingMachineInstallation" class="form-control" th:field="*{washingMachineInstallation}">
             <option th:value="false" th:text="なし">なし</option>
             <option th:value="true" th:text="あり">あり</option>
           </select>
+          <p><font size="3" color="gray">&nbsp;&nbsp;&nbsp;タブから選択してください<br></font></p>
         </div>
       </fieldset>
       <div class="form-group">
