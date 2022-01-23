@@ -74,6 +74,11 @@
           <td><span th:text="*{newAddress}"></span></td>
           <input type="hidden" name="newAddress" id="newAddress" th:value="*{newAddress}"/>
         </tr>
+        <tr>
+          <th style="width: 40%">お引越し希望月</th>
+          <td><span th:text="*{month}"></span></td>
+          <input type="hidden" name="month" id="month" th:value="*{month}"/>
+        </tr>
         </tbody>
       </table>
       <div class="sub-title">お荷物情報</div>
@@ -110,7 +115,7 @@
       </table>
       <div class="form-group">
         <div class="text-center">
-          <button type="submit" name="backToConfirm" class="btn-back">確認画面へ戻る</button>
+          <button type="submit" name="backToConfirm" class="btn-back">確認画面に戻る</button>
         </div>
       </div>
     </div>

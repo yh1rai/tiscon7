@@ -70,12 +70,11 @@
                  value="札幌市南区1"/>
           <p><font size="3" color="gray">&nbsp;&nbsp;&nbsp;例：豊田市1-1-1<br></font></p>
         </div>
-        <!--
         <div class="form-group">
-          <label for="date"><font size="4" color="black">引越し希望日</font></label>
-          <input type="date" id="date" name="date" th:field="*{date}" class="form-control"/>
+          <label for="month"><font size="4" color="black">お引越し希望月</font></label>
+          <input type="text" required="required" id="month" name="month" pattern="[\d]*" th:field="*{month}" class="form-control" value="10" min="1" max="12"/>
+          <p><font size="3" color="gray">&nbsp;&nbsp;&nbsp;半角数字で入力してください&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;例：5<br></font></p>
         </div>
-        -->
       </fieldset>
       <fieldset>
         <div class="sub-title"><font size="5" color="black">お荷物情報</font></div>
