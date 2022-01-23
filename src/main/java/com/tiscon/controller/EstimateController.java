@@ -134,7 +134,9 @@ public class EstimateController {
         Integer price = estimateService.getPrice(dto);
 
         if(price == -1){
-            String message = "荷物の量が多すぎて1台のトラックに詰むことができません。";
+            String message = "お荷物がトラックの積載可能量を超えています。";
+            model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
+            model.addAttribute("userOrderForm", userOrderForm);
             model.addAttribute("hasBoxNumError", true);
             model.addAttribute("boxNumError", message);
             return "confirm";

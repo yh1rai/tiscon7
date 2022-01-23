@@ -52,6 +52,14 @@ body {
     color: #BC412E;
     font-weight: bold;
 }
+.truck-cap-warning{
+    text-align: center;
+    background: red;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    padding: 1%;
+}
 
 .company-name {
     position: static;

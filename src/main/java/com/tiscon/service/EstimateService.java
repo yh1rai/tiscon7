@@ -102,7 +102,8 @@ public class EstimateService {
         //引っ越し日の季節を考慮して料金を見積もりする
 
         //引っ越し月
-        int month = 9;
+        //int month = 9;
+        int month = dto.getMonth();
 
         //季節係数（引っ越し月によって決定）
         double N;

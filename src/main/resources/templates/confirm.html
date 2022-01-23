@@ -29,7 +29,8 @@
       <li th:each="err : ${#fields.errors('all')}" th:text="${err}"></li>
     </ul>
     <ul th:if="${hasBoxNumError}">
-      <li class="warning" th:text="${boxNumError}"></li>
+      <br>
+      <li class="truck-cap-warning" th:text="${boxNumError}"></li>
     </ul>
 
     <div class="col-sm-12">
