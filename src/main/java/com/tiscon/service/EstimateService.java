@@ -82,6 +82,11 @@ public class EstimateService {
                 + getBoxForPackage(dto.getBicycle(), PackageType.BICYCLE)
                 + getBoxForPackage(dto.getWashingMachine(), PackageType.WASHING_MACHINE);
 
+        //修正箇所
+        if(boxes > 200){
+            return -1;
+        }
+        //
         // 箱に応じてトラックの種類が変わり、それに応じて料金が変わるためトラック料金を算出する。
         int pricePerTruck = estimateDAO.getPricePerTruck(boxes);
 
@@ -92,7 +97,33 @@ public class EstimateService {
             priceForOptionalService = estimateDAO.getPricePerOptionalService(OptionalServiceType.WASHING_MACHINE.getCode());
         }
 
-        return priceForDistance + pricePerTruck + priceForOptionalService;
+        //追加=============================================================
+
+        //引っ越し日の季節を考慮して料金を見積もりする
+
+        //引っ越し月
+        int month = 9;
+
+        //季節係数（引っ越し月によって決定）
+        double N;
+
+        if(month == 3 || month == 4){
+            N = 1.5;
+        }
+        else if(month == 9){
+            N = 1.2;
+        }
+        else{
+            N = 1.0;
+        }
+
+        //季節係数に応じた見積もり料金を返す
+        return (int)(N * (priceForDistance + pricePerTruck) + priceForOptionalService);
+
+        //==============================================================================
+
+        //既存コード
+        // return priceForDistance + pricePerTruck + priceForOptionalService;
     }
 
     /**

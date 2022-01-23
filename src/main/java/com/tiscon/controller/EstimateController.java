@@ -120,17 +120,44 @@ public class EstimateController {
      */
     @PostMapping(value = "result", params = "calculation")
     String calculation(@Validated UserOrderForm userOrderForm, BindingResult result, Model model) {
-        if (result.hasErrors()) {
+
+        if(result.hasErrors()){//入力項目にエラーがあった場合はエラーを表示して再度確認画面へ
+            model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
+            model.addAttribute("userOrderForm", userOrderForm);
+            return "confirm";
+        }
+        //編集箇所==============================================================
+
+        // 料金の計算を行う。
+        UserOrderDto dto = new UserOrderDto();
+        BeanUtils.copyProperties(userOrderForm, dto);
+        Integer price = estimateService.getPrice(dto);
+
+        if(price == -1){
+            String message = "荷物の量が多すぎて1台のトラックに詰むことができません。";
+            model.addAttribute("hasBoxNumError", true);
+            model.addAttribute("boxNumError", message);
+            return "confirm";
+        }
+
+        //=====================================================================
+
+
+        /*元々あったコード========================================================
+        if (result.hasErrors()) {//
 
             model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
             model.addAttribute("userOrderForm", userOrderForm);
             return "confirm";
         }
 
+
         // 料金の計算を行う。
         UserOrderDto dto = new UserOrderDto();
         BeanUtils.copyProperties(userOrderForm, dto);
         Integer price = estimateService.getPrice(dto);
+
+        ========================================================================*/
 
         model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
         model.addAttribute("userOrderForm", userOrderForm);
