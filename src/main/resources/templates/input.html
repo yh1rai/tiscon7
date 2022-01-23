@@ -72,7 +72,7 @@
         </div>
         <div class="form-group">
           <label for="month"><font size="4" color="black">お引越し希望月</font></label>
-          <input type="text" required="required" id="month" name="month" pattern="[\d]*" th:field="*{month}" class="form-control" value="10" min="1" max="12"/>
+          <input type="number" required="required" id="month" name="month" pattern="[\d]*" th:field="*{month}" class="form-control" value="10" min="1" max="12"/>
           <p><font size="3" color="gray">&nbsp;&nbsp;&nbsp;半角数字で入力してください&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;例：5<br></font></p>
         </div>
       </fieldset>
@@ -113,7 +113,11 @@
       </fieldset>
       <div class="form-group">
         <div class="text-center">
-          <button type="submit" name="backToTop" class="btn-back">TOPへ戻る</button>
+          <!--<button type="button" onclick="return http://localhost:9080/" name="backToTop" class="btn-back">TOPへ戻る</button>
+          -->
+          <a href="http://localhost:9080/">
+            <button type="button" class="btn-back">TOPへ戻る</button>
+          </a>
           <button type="submit" name="confirm" class="btn btn-primary">ご入力内容の確認へ</button>
         </div>
       </div>
